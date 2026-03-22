@@ -752,6 +752,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
       .hero-visual { display: none; }
+      .hero-content { max-width: 100%; }
+      .hero-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 40px; }
       .how-grid { grid-template-columns: 1fr; }
       .testi-grid { grid-template-columns: 1fr 1fr; }
       .charts-grid { grid-template-columns: 1fr 1fr; }
@@ -774,7 +776,10 @@
       .charts-grid { grid-template-columns: 1fr; }
       .obj-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
-      .hero-stats { gap: 28px; flex-wrap: wrap; }
+      .hero-stats { display: flex !important; flex-wrap: nowrap !important; gap: 12px !important; margin-top: 40px !important; }
+      .hero-stats > div { flex: 1; min-width: 0; }
+      .stat-num { font-size: 1rem !important; }
+      .stat-label { font-size: 0.65rem; }
       .pc-head { flex-direction: column; gap: 20px; }
       .pc-price { text-align: left; }
       .pc-feats { grid-template-columns: 1fr; }
