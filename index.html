@@ -776,9 +776,10 @@
       .charts-grid { grid-template-columns: 1fr; }
       .obj-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
-      .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
-      .stat-num { font-size: 1.4rem; }
-      .stat-label { font-size: 0.7rem; }
+      .hero-stats { display: flex !important; flex-wrap: nowrap !important; gap: 12px !important; margin-top: 40px !important; }
+      .hero-stats > div { flex: 1; min-width: 0; }
+      .stat-num { font-size: 1rem !important; }
+      .stat-label { font-size: 0.65rem; }
       .pc-head { flex-direction: column; gap: 20px; }
       .pc-price { text-align: left; }
       .pc-feats { grid-template-columns: 1fr; }
