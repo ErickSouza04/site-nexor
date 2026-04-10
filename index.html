@@ -1050,6 +1050,270 @@ footer{border-top:1px solid var(--border);padding:36px 0}
 
 </style>
 
+<style>
+/* ════════════════════════════════
+   PREMIUM VISUAL EFFECTS
+   Glow · Glassmorphism · 3D Depth
+   Ambient Light · Pulse
+════════════════════════════════ */
+
+/* ── GLASSMORPHISM NAV ── */
+nav{
+  background:rgba(7,8,15,.72);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  border-bottom:1px solid rgba(0,229,160,.12);
+  box-shadow:0 1px 0 rgba(0,229,160,.07),0 8px 32px rgba(0,0,0,.5);
+}
+
+/* ── LOGO — MULTI-LAYER GLOW ── */
+.logo{
+  text-shadow:
+    0 0 8px rgba(0,229,160,.9),
+    0 0 22px rgba(0,229,160,.55),
+    0 0 48px rgba(0,229,160,.28),
+    0 0 96px rgba(0,229,160,.12);
+  filter:drop-shadow(0 0 4px rgba(0,229,160,.35));
+}
+
+/* ── HERO H1 — NEON BLOOM GLOW ── */
+.hero-h1 em{
+  text-shadow:
+    0 0 4px rgba(0,229,160,1),
+    0 0 12px rgba(0,229,160,.9),
+    0 0 28px rgba(0,229,160,.65),
+    0 0 56px rgba(0,229,160,.35),
+    0 0 100px rgba(0,229,160,.18);
+}
+
+/* ── CTA FINAL HEADING — NEON BLOOM ── */
+.cta-h2 em{
+  text-shadow:
+    0 0 4px rgba(0,229,160,1),
+    0 0 12px rgba(0,229,160,.9),
+    0 0 28px rgba(0,229,160,.65),
+    0 0 56px rgba(0,229,160,.35);
+}
+
+/* ── PAIN SECTION HEADING ACCENT ── */
+.pain-left h2 span{
+  text-shadow:
+    0 0 6px rgba(0,229,160,.85),
+    0 0 18px rgba(0,229,160,.5),
+    0 0 40px rgba(0,229,160,.25);
+}
+
+/* ── NAV CTA — GLOW RING ── */
+.nav-cta{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 0 14px rgba(0,229,160,.28),
+    0 0 30px rgba(0,229,160,.12);
+}
+.nav-cta:hover{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 0 22px rgba(0,229,160,.5),
+    0 0 52px rgba(0,229,160,.22);
+}
+
+/* ── PRIMARY BTN — INNER + OUTER + BLOOM ── */
+.btn-primary{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -1px 0 rgba(0,0,0,.2),
+    0 0 14px rgba(0,229,160,.32),
+    0 0 32px rgba(0,229,160,.16),
+    0 4px 16px rgba(0,0,0,.45);
+  text-shadow:0 1px 2px rgba(0,0,0,.25);
+  /* override 'all' so animation isn't interrupted */
+  transition:background-color .25s,transform .25s;
+}
+.btn-primary:hover{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -1px 0 rgba(0,0,0,.2),
+    0 0 22px rgba(0,229,160,.55),
+    0 0 55px rgba(0,229,160,.28),
+    0 8px 24px rgba(0,0,0,.4);
+}
+
+/* ── PULSING GLOW — HERO & CTA FINAL BUTTONS ── */
+@keyframes cta-pulse-glow{
+  0%,100%{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.22),
+      inset 0 -1px 0 rgba(0,0,0,.2),
+      0 0 14px rgba(0,229,160,.32),
+      0 0 32px rgba(0,229,160,.16),
+      0 4px 16px rgba(0,0,0,.45);
+  }
+  50%{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.22),
+      inset 0 -1px 0 rgba(0,0,0,.2),
+      0 0 26px rgba(0,229,160,.62),
+      0 0 64px rgba(0,229,160,.32),
+      0 0 108px rgba(0,229,160,.14),
+      0 4px 16px rgba(0,0,0,.45);
+  }
+}
+#cta-final .btn-primary{
+  animation:cta-pulse-glow 2.8s ease-in-out infinite;
+}
+.hero-ctas .btn-primary{
+  animation:cta-pulse-glow 3.2s ease-in-out infinite;
+}
+
+/* ── FEATURE CARDS — GLASSMORPHISM + 3D DEPTH ── */
+.feat-card{
+  background:rgba(7,8,15,.84);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(0,229,160,.1);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.8),
+    0 4px 12px rgba(0,0,0,.55),
+    0 16px 40px rgba(0,0,0,.38),
+    0 40px 80px rgba(0,0,0,.2);
+  /* remove transform from transition — JS handles it */
+  transition:border-color .3s,box-shadow .3s;
+  will-change:transform;
+}
+.feat-card:hover{
+  border-color:rgba(0,229,160,.25);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.8),
+    0 4px 12px rgba(0,0,0,.55),
+    0 20px 60px rgba(0,0,0,.5),
+    0 0 40px rgba(0,229,160,.09);
+}
+
+/* ── PLAN CARDS — GLASSMORPHISM + 3D DEPTH ── */
+.plan{
+  background:rgba(7,8,15,.84);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.8),
+    0 4px 12px rgba(0,0,0,.55),
+    0 20px 50px rgba(0,0,0,.4),
+    0 50px 100px rgba(0,0,0,.22);
+  will-change:transform;
+}
+.plan.plus{
+  background:linear-gradient(150deg,rgba(240,180,41,.06) 0%,rgba(7,8,15,.88) 60%);
+  border-color:rgba(240,180,41,.35);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.8),
+    0 4px 12px rgba(0,0,0,.55),
+    0 20px 50px rgba(0,0,0,.4),
+    0 50px 100px rgba(0,0,0,.22),
+    0 0 50px rgba(240,180,41,.1),
+    0 0 100px rgba(240,180,41,.06);
+}
+
+/* ── TESTIMONIALS — GLASSMORPHISM + 3D DEPTH ── */
+.testimonial{
+  background:rgba(12,14,26,.9);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.07);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.75),
+    0 4px 12px rgba(0,0,0,.5),
+    0 16px 40px rgba(0,0,0,.32);
+  will-change:transform;
+}
+.testimonial:hover{
+  border-color:rgba(0,229,160,.2);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.75),
+    0 4px 12px rgba(0,0,0,.5),
+    0 20px 50px rgba(0,0,0,.42),
+    0 0 30px rgba(0,229,160,.07);
+}
+
+/* ── STAT CARD — GLASSMORPHISM + DEPTH ── */
+.stat-card{
+  background:rgba(17,20,34,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(0,229,160,.12);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.8),
+    0 8px 24px rgba(0,0,0,.58),
+    0 24px 64px rgba(0,0,0,.38),
+    0 0 40px rgba(0,229,160,.04);
+  will-change:transform;
+}
+
+/* ── PHONE MOCKUP — GLOW BOOST ── */
+.phone{
+  box-shadow:
+    0 0 0 1px rgba(0,229,160,.12),
+    0 0 32px rgba(0,229,160,.08),
+    0 48px 96px rgba(0,0,0,.75);
+}
+.phone-lg{
+  box-shadow:
+    0 0 0 1px rgba(0,229,160,.1),
+    0 0 24px rgba(0,229,160,.06),
+    0 32px 80px rgba(0,0,0,.55);
+}
+
+/* ── APP MOCKUP — GLOW BOOST ── */
+.app-mockup-css{
+  box-shadow:
+    0 0 0 1px rgba(0,229,160,.08),
+    0 0 40px rgba(0,229,160,.06),
+    0 32px 80px rgba(0,0,0,.65);
+}
+
+/* ── HERO BADGE — AMBIENT GLOW ── */
+.hero-badge{
+  box-shadow:
+    0 0 20px rgba(0,229,160,.16),
+    0 0 50px rgba(0,229,160,.07);
+}
+
+/* ── SECTION TAGS — GLOW ── */
+.tag{
+  box-shadow:
+    0 0 12px rgba(0,229,160,.1),
+    0 0 36px rgba(0,229,160,.05);
+  text-shadow:0 0 8px rgba(0,229,160,.45);
+}
+
+/* ── AMBIENT BLOB — BASE STYLE ── */
+.ambient-blob{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── AMBIENT BLOB — KEYFRAMES ── */
+@keyframes blob-drift-a{
+  0%,100%{transform:translate(0,0) scale(1);opacity:.13}
+  33%{transform:translate(28px,-38px) scale(1.07);opacity:.17}
+  66%{transform:translate(-18px,18px) scale(.95);opacity:.11}
+}
+@keyframes blob-drift-b{
+  0%,100%{transform:translate(0,0) scale(1);opacity:.1}
+  50%{transform:translate(-38px,28px) scale(1.08);opacity:.14}
+}
+@keyframes blob-drift-c{
+  0%,100%{transform:translate(0,0) scale(1.04);opacity:.11}
+  40%{transform:translate(22px,-28px) scale(.96);opacity:.08}
+  70%{transform:translate(-14px,18px) scale(1.1);opacity:.14}
+}
+
+/* ── CLIP OVERFLOW SO BLOBS DON'T BLEED OUT ── */
+#features,#proof,#plans,#cta-final{overflow:hidden}
+</style>
+
 <!-- ════════════════════════════════
      PROOF
 ════════════════════════════════ -->
@@ -1301,6 +1565,131 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!wasOpen) item.classList.add('open');
   });
 });
+</script>
+
+<script>
+// ════════════════════════════════
+// PREMIUM EFFECTS — 3D Tilt + Ambient Blobs
+// Pure JS, no external libraries
+// ════════════════════════════════
+(function(){
+
+  // ── 3D PERSPECTIVE TILT ON HOVER ──────────────────────────────────
+  // Reads mousemove position relative to card centre and drives
+  // perspective(900px) rotateX/Y with a smooth lerp loop.
+  var tiltCfg=[
+    {sel:'.feat-card',   maxA:10, tz:12},
+    {sel:'.plan',        maxA: 8, tz:10},
+    {sel:'.testimonial', maxA: 7, tz: 8},
+    {sel:'.stat-card',   maxA: 6, tz: 8},
+  ];
+
+  tiltCfg.forEach(function(cfg){
+    document.querySelectorAll(cfg.sel).forEach(function(card){
+      var raf=null, on=false;
+      // target angles (updated on mousemove)
+      var tx=0, ty=0;
+      // current interpolated angles
+      var cx=0, cy=0;
+
+      // Lerp toward target while hovering
+      function loop(){
+        cx+=(tx-cx)*.12;
+        cy+=(ty-cy)*.12;
+        card.style.transform=
+          'perspective(900px) rotateX('+cx.toFixed(2)+'deg)'+
+          ' rotateY('+cy.toFixed(2)+'deg)'+
+          ' translateZ('+cfg.tz+'px)';
+        if(on) raf=requestAnimationFrame(loop);
+      }
+
+      // Lerp back to identity after mouse leaves
+      function toRest(){
+        cx+=(0-cx)*.1;
+        cy+=(0-cy)*.1;
+        if(Math.abs(cx)<.05&&Math.abs(cy)<.05){
+          cx=0; cy=0;
+          card.style.transform='';
+          return;
+        }
+        card.style.transform=
+          'perspective(900px) rotateX('+cx.toFixed(2)+'deg)'+
+          ' rotateY('+cy.toFixed(2)+'deg)';
+        raf=requestAnimationFrame(toRest);
+      }
+
+      card.addEventListener('mouseenter',function(){
+        on=true;
+        // only transition non-transform props so tilt feels instant
+        card.style.transition='box-shadow .25s,border-color .25s';
+        cancelAnimationFrame(raf);
+        raf=requestAnimationFrame(loop);
+      });
+
+      card.addEventListener('mousemove',function(e){
+        var r=card.getBoundingClientRect();
+        // normalised -1..1 relative to card centre
+        var dx=(e.clientX-(r.left+r.width/2))/(r.width/2);
+        var dy=(e.clientY-(r.top +r.height/2))/(r.height/2);
+        tx=-dy*cfg.maxA;   // rotateX: tilt top/bottom
+        ty= dx*cfg.maxA;   // rotateY: tilt left/right
+      });
+
+      card.addEventListener('mouseleave',function(){
+        on=false;
+        cancelAnimationFrame(raf);
+        tx=0; ty=0;
+        raf=requestAnimationFrame(toRest);
+      });
+    });
+  });
+
+
+  // ── AMBIENT LIGHT BLOBS ──────────────────────────────────
+  // Inject radial-gradient divs into key sections.
+  // CSS keyframes (blob-drift-a/b/c) are defined in the style block above.
+  var ambSec=[
+    {id:'hero', blobs:[
+      {w:500,h:500,t:'5%', l:'2%',  c:'rgba(0,229,160,.07)', a:'blob-drift-a 17s ease-in-out infinite'},
+      {w:380,h:380,t:'50%',r:'2%',  c:'rgba(0,229,160,.05)', a:'blob-drift-b 21s ease-in-out infinite'},
+    ]},
+    {id:'features', blobs:[
+      {w:550,h:380,t:'12%',l:'-8%', c:'rgba(0,229,160,.06)', a:'blob-drift-c 19s ease-in-out infinite'},
+      {w:450,h:380,b:'8%', r:'-8%', c:'rgba(0,229,160,.05)', a:'blob-drift-a 23s ease-in-out infinite reverse'},
+    ]},
+    {id:'proof', blobs:[
+      {w:500,h:380,t:'22%',l:'3%',  c:'rgba(0,229,160,.06)', a:'blob-drift-b 20s ease-in-out infinite'},
+      {w:400,h:320,b:'12%',r:'3%',  c:'rgba(0,229,160,.05)', a:'blob-drift-c 25s ease-in-out infinite'},
+    ]},
+    {id:'plans', blobs:[
+      {w:550,h:380,t:'12%',r:'-12%',c:'rgba(240,180,41,.04)',a:'blob-drift-a 21s ease-in-out infinite'},
+      {w:450,h:320,b:'8%', l:'-10%',c:'rgba(0,229,160,.05)', a:'blob-drift-b 17s ease-in-out infinite'},
+    ]},
+    {id:'cta-final', blobs:[
+      {w:650,h:500,t:'10%',l:'50%',tf:'translateX(-50%)',c:'rgba(0,229,160,.07)',a:'blob-drift-a 15s ease-in-out infinite'},
+    ]},
+  ];
+
+  ambSec.forEach(function(sec){
+    var el=document.getElementById(sec.id);
+    if(!el) return;
+    sec.blobs.forEach(function(b){
+      var d=document.createElement('div');
+      d.className='ambient-blob';
+      var s='width:'+b.w+'px;height:'+b.h+'px;';
+      if(b.t) s+='top:'+b.t+';';
+      if(b.b) s+='bottom:'+b.b+';';
+      if(b.l) s+='left:'+b.l+';';
+      if(b.r) s+='right:'+b.r+';';
+      if(b.tf) s+='transform:'+b.tf+';';
+      s+='background:radial-gradient(circle,'+b.c+' 0%,transparent 70%);';
+      s+='animation:'+b.a+';filter:blur(2px);';
+      d.style.cssText=s;
+      el.appendChild(d);
+    });
+  });
+
+})();
 </script>
 
 </body>
