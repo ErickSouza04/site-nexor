@@ -44,7 +44,7 @@ body::before{
 /* Primary orb — top center */
 .glow-orb{
   position:absolute;border-radius:50%;
-  background:radial-gradient(circle,rgba(0,229,160,.13) 0%,rgba(0,229,160,.04) 40%,transparent 70%);
+  background:radial-gradient(circle,rgba(0,229,160,.06) 0%,rgba(0,229,160,.02) 40%,transparent 70%);
   filter:blur(1px);
 }
 .glow-orb-1{
@@ -167,8 +167,7 @@ section{position:relative;z-index:1}
 #hero{
   min-height:100vh;display:flex;align-items:center;
   padding:100px 0 80px;overflow:hidden;
-  /* Strong green radial glow from top */
-  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,229,160,.09) 0%,transparent 65%);
+  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,229,160,.04) 0%,transparent 65%);
 }
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 
@@ -191,7 +190,6 @@ section{position:relative;z-index:1}
 }
 .hero-h1 em{
   font-style:normal;color:var(--green);display:block;
-  text-shadow:0 0 18px rgba(0,229,160,.2);
 }
 
 .hero-sub{font-size:17px;color:var(--muted);line-height:1.7;margin-bottom:32px;max-width:440px}
@@ -1067,30 +1065,22 @@ nav{
 
 /* ── LOGO — SUBTLE GLOW ── */
 .logo{
-  text-shadow:
-    0 0 6px rgba(0,229,160,.4),
-    0 0 16px rgba(0,229,160,.15);
+  text-shadow:0 0 8px rgba(0,229,160,.2);
 }
 
-/* ── HERO H1 — SUBTLE GLOW ── */
+/* ── HERO H1 — NO GLOW ── */
 .hero-h1 em{
-  text-shadow:
-    0 0 6px rgba(0,229,160,.5),
-    0 0 20px rgba(0,229,160,.2);
+  text-shadow:none;
 }
 
 /* ── CTA FINAL HEADING — SUBTLE GLOW ── */
 .cta-h2 em{
-  text-shadow:
-    0 0 6px rgba(0,229,160,.5),
-    0 0 20px rgba(0,229,160,.2);
+  text-shadow:0 0 8px rgba(0,229,160,.2);
 }
 
 /* ── PAIN SECTION HEADING ACCENT ── */
 .pain-left h2 span{
-  text-shadow:
-    0 0 6px rgba(0,229,160,.35),
-    0 0 18px rgba(0,229,160,.15);
+  text-shadow:0 0 6px rgba(0,229,160,.18);
 }
 
 /* ── NAV CTA — GLOW RING ── */
