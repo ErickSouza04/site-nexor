@@ -39,7 +39,7 @@ body::before{
    slowly, creating a living atmosphere
 ════════════════════════════════ */
 .glow-layer{
-  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+  display:none;
 }
 /* Primary orb — top center */
 .glow-orb{
@@ -89,37 +89,9 @@ body::before{
   50%{opacity:.5;transform:translateX(-50%) scale(1.1)}
 }
 
-/* Vertical green spine — subtle centerline glow */
-.glow-spine{
-  position:fixed;top:0;bottom:0;left:50%;transform:translateX(-50%);
-  width:1px;pointer-events:none;z-index:0;
-  background:linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0,229,160,.08) 15%,
-    rgba(0,229,160,.12) 30%,
-    rgba(0,229,160,.06) 50%,
-    rgba(0,229,160,.10) 70%,
-    rgba(0,229,160,.07) 85%,
-    transparent 100%
-  );
-  animation:spine 8s ease-in-out infinite;
-}
-@keyframes spine{
-  0%,100%{opacity:.6}
-  50%{opacity:1}
-}
+.glow-spine{display:none;}
 
-/* Section-level glow accent — each section gets a subtle center bloom */
-section::before{
-  content:'';
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:min(800px,100%);height:300px;
-  background:radial-gradient(ellipse,rgba(0,229,160,.04) 0%,transparent 70%);
-  pointer-events:none;z-index:0;
-  border-radius:50%;
-}
+section::before{display:none;}
 
 /* ── NAV ── */
 nav{
@@ -167,7 +139,6 @@ section{position:relative;z-index:1}
 #hero{
   min-height:100vh;display:flex;align-items:center;
   padding:100px 0 80px;overflow:hidden;
-  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,229,160,.04) 0%,transparent 65%);
 }
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 
@@ -180,7 +151,6 @@ section{position:relative;z-index:1}
   background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.3);
   border-radius:100px;padding:7px 18px;font-size:13px;color:var(--green);
   margin-bottom:24px;
-  box-shadow:0 0 20px rgba(0,229,160,.12);
 }
 .hero-badge .pulse{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 1.8s infinite}
 
@@ -213,16 +183,11 @@ section{position:relative;z-index:1}
 
 /* ── WHATSAPP PHONE ── */
 .phone-wrap{display:flex;justify-content:center;position:relative}
-.phone-glow{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:320px;height:320px;
-  background:radial-gradient(circle,rgba(0,229,160,.12) 0%,transparent 70%);
-  pointer-events:none;
-}
+.phone-glow{display:none;}
 .phone{
   width:290px;background:var(--bg2);border-radius:28px;
   border:1px solid rgba(255,255,255,.1);
-  box-shadow:0 0 0 1px rgba(0,229,160,.08),0 48px 96px rgba(0,0,0,.7);
+  box-shadow:0 48px 96px rgba(0,0,0,.7);
   overflow:hidden;position:relative;z-index:1;
 }
 .phone-bar{
@@ -296,7 +261,7 @@ section{position:relative;z-index:1}
   width:100%;max-width:340px;margin:0 auto;
   background:var(--bg2);border-radius:22px;
   border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 32px 80px rgba(0,0,0,.5),0 0 40px rgba(0,229,160,.04);
+  box-shadow:0 32px 80px rgba(0,0,0,.5);
   overflow:hidden;
 }
 .phone-body-lg{padding:14px 14px;height:290px;background:var(--bg3);display:flex;flex-direction:column;gap:9px;overflow:hidden;position:relative}
@@ -362,7 +327,6 @@ section{position:relative;z-index:1}
 .plan.plus{
   border-color:var(--gold);
   background:linear-gradient(150deg,rgba(240,180,41,.05) 0%,var(--bg) 60%);
-  box-shadow:0 0 48px rgba(240,180,41,.07);
 }
 .plan-badge{
   position:absolute;top:-12px;left:50%;transform:translateX(-50%);
@@ -431,7 +395,6 @@ section{position:relative;z-index:1}
 ════════════════════════════════ */
 #cta-final{
   padding:120px 0;
-  background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(0,229,160,.07) 0%,transparent 70%);
   text-align:center;
 }
 .cta-h2{font-size:clamp(32px,4.5vw,56px);font-weight:800;letter-spacing:-1.5px;color:#fff;margin-bottom:14px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.1}
@@ -481,51 +444,31 @@ footer{border-top:1px solid var(--border);padding:36px 0}
 /* ════════════════════════════════
    GLOBAL GREEN IDENTITY BOOST
 ════════════════════════════════ */
-/* Section tags — stronger green */
+/* Section tags */
 .tag{
   background:rgba(0,229,160,.1);
   border-color:rgba(0,229,160,.25);
-  box-shadow:0 0 16px rgba(0,229,160,.08);
 }
 
 /* Section headings — green accent on key words already handled inline */
 
-/* Buttons — stronger primary glow */
 .btn-primary{
-  box-shadow:0 0 0 0 rgba(0,229,160,0);
   transition:all .25s;
 }
 .btn-primary:hover{
-  box-shadow:0 8px 32px rgba(0,229,160,.35),0 0 0 2px rgba(0,229,160,.15);
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
 }
 
-/* Nav CTA — green border glow */
-.nav-cta{
-  box-shadow:0 0 0 1px rgba(0,229,160,.2);
-}
 
-/* Logo green brighter */
-.logo{
-  text-shadow:0 0 10px rgba(0,229,160,.15);
-}
 
-/* Green border accent on cards hover */
 .feat-card:hover,.testimonial:hover{
-  box-shadow:0 0 0 1px rgba(0,229,160,.15), 0 16px 40px rgba(0,0,0,.3);
+  box-shadow:0 16px 40px rgba(0,0,0,.3);
 }
 
-/* Score ring section background glow */
-#features{
-  background:linear-gradient(180deg,var(--bg2) 0%,rgba(0,229,160,.02) 50%,var(--bg2) 100%);
-}
 
 /* Steps numbers — green tint stronger */
 .step-n{color:rgba(0,229,160,.15)}
 
-/* Plan plus border glows brighter */
-.plan.plus{
-  box-shadow:0 0 60px rgba(240,180,41,.1), 0 0 0 1px rgba(240,180,41,.2);
-}
 
 /* How section divider line green */
 .step-line{
@@ -1012,7 +955,7 @@ footer{border-top:1px solid var(--border);padding:36px 0}
 .app-mockup-css{
   width:100%;border-radius:14px;overflow:hidden;
   border:1px solid rgba(0,229,160,.12);
-  box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(0,229,160,.06);
+  box-shadow:0 32px 80px rgba(0,0,0,.6);
   background:var(--bg2);
 }
 .amc-topbar{
@@ -1063,86 +1006,15 @@ nav{
   box-shadow:0 1px 0 rgba(0,229,160,.07),0 8px 32px rgba(0,0,0,.5);
 }
 
-/* ── LOGO — SUBTLE GLOW ── */
-.logo{
-  text-shadow:0 0 8px rgba(0,229,160,.2);
-}
 
-/* ── HERO H1 — NO GLOW ── */
-.hero-h1 em{
-  text-shadow:none;
-}
 
-/* ── CTA FINAL HEADING — SUBTLE GLOW ── */
-.cta-h2 em{
-  text-shadow:0 0 8px rgba(0,229,160,.2);
-}
-
-/* ── PAIN SECTION HEADING ACCENT ── */
-.pain-left h2 span{
-  text-shadow:0 0 6px rgba(0,229,160,.18);
-}
-
-/* ── NAV CTA — GLOW RING ── */
-.nav-cta{
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.12),
-    0 0 14px rgba(0,229,160,.28),
-    0 0 30px rgba(0,229,160,.12);
-}
-.nav-cta:hover{
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.12),
-    0 0 22px rgba(0,229,160,.5),
-    0 0 52px rgba(0,229,160,.22);
-}
-
-/* ── PRIMARY BTN — INNER + OUTER + BLOOM ── */
+/* ── PRIMARY BTN ── */
 .btn-primary{
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.22),
-    inset 0 -1px 0 rgba(0,0,0,.2),
-    0 0 14px rgba(0,229,160,.32),
-    0 0 32px rgba(0,229,160,.16),
-    0 4px 16px rgba(0,0,0,.45);
-  text-shadow:0 1px 2px rgba(0,0,0,.25);
-  /* override 'all' so animation isn't interrupted */
+  box-shadow:0 4px 16px rgba(0,0,0,.35);
   transition:background-color .25s,transform .25s;
 }
 .btn-primary:hover{
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.22),
-    inset 0 -1px 0 rgba(0,0,0,.2),
-    0 0 22px rgba(0,229,160,.55),
-    0 0 55px rgba(0,229,160,.28),
-    0 8px 24px rgba(0,0,0,.4);
-}
-
-/* ── PULSING GLOW — HERO & CTA FINAL BUTTONS ── */
-@keyframes cta-pulse-glow{
-  0%,100%{
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.22),
-      inset 0 -1px 0 rgba(0,0,0,.2),
-      0 0 14px rgba(0,229,160,.32),
-      0 0 32px rgba(0,229,160,.16),
-      0 4px 16px rgba(0,0,0,.45);
-  }
-  50%{
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.22),
-      inset 0 -1px 0 rgba(0,0,0,.2),
-      0 0 26px rgba(0,229,160,.62),
-      0 0 64px rgba(0,229,160,.32),
-      0 0 108px rgba(0,229,160,.14),
-      0 4px 16px rgba(0,0,0,.45);
-  }
-}
-#cta-final .btn-primary{
-  animation:cta-pulse-glow 2.8s ease-in-out infinite;
-}
-.hero-ctas .btn-primary{
-  animation:cta-pulse-glow 3.2s ease-in-out infinite;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
 }
 
 /* ── FEATURE CARDS — GLASSMORPHISM + 3D DEPTH ── */
@@ -1165,8 +1037,7 @@ nav{
   box-shadow:
     0 1px 3px rgba(0,0,0,.8),
     0 4px 12px rgba(0,0,0,.55),
-    0 20px 60px rgba(0,0,0,.5),
-    0 0 40px rgba(0,229,160,.09);
+    0 20px 60px rgba(0,0,0,.5);
 }
 
 /* ── PLAN CARDS — GLASSMORPHISM + 3D DEPTH ── */
@@ -1189,9 +1060,7 @@ nav{
     0 1px 3px rgba(0,0,0,.8),
     0 4px 12px rgba(0,0,0,.55),
     0 20px 50px rgba(0,0,0,.4),
-    0 50px 100px rgba(0,0,0,.22),
-    0 0 50px rgba(240,180,41,.1),
-    0 0 100px rgba(240,180,41,.06);
+    0 50px 100px rgba(0,0,0,.22);
 }
 
 /* ── TESTIMONIALS — GLASSMORPHISM + 3D DEPTH ── */
@@ -1211,8 +1080,7 @@ nav{
   box-shadow:
     0 1px 3px rgba(0,0,0,.75),
     0 4px 12px rgba(0,0,0,.5),
-    0 20px 50px rgba(0,0,0,.42),
-    0 0 30px rgba(0,229,160,.07);
+    0 20px 50px rgba(0,0,0,.42);
 }
 
 /* ── STAT CARD — GLASSMORPHISM + DEPTH ── */
@@ -1224,47 +1092,24 @@ nav{
   box-shadow:
     0 1px 3px rgba(0,0,0,.8),
     0 8px 24px rgba(0,0,0,.58),
-    0 24px 64px rgba(0,0,0,.38),
-    0 0 40px rgba(0,229,160,.04);
+    0 24px 64px rgba(0,0,0,.38);
   will-change:transform;
 }
 
-/* ── PHONE MOCKUP — GLOW BOOST ── */
+/* ── PHONE MOCKUP ── */
 .phone{
-  box-shadow:
-    0 0 0 1px rgba(0,229,160,.12),
-    0 0 32px rgba(0,229,160,.08),
-    0 48px 96px rgba(0,0,0,.75);
+  box-shadow:0 48px 96px rgba(0,0,0,.75);
 }
 .phone-lg{
-  box-shadow:
-    0 0 0 1px rgba(0,229,160,.1),
-    0 0 24px rgba(0,229,160,.06),
-    0 32px 80px rgba(0,0,0,.55);
+  box-shadow:0 32px 80px rgba(0,0,0,.55);
 }
 
-/* ── APP MOCKUP — GLOW BOOST ── */
+/* ── APP MOCKUP ── */
 .app-mockup-css{
-  box-shadow:
-    0 0 0 1px rgba(0,229,160,.08),
-    0 0 40px rgba(0,229,160,.06),
-    0 32px 80px rgba(0,0,0,.65);
+  box-shadow:0 32px 80px rgba(0,0,0,.65);
 }
 
-/* ── HERO BADGE — AMBIENT GLOW ── */
-.hero-badge{
-  box-shadow:
-    0 0 20px rgba(0,229,160,.16),
-    0 0 50px rgba(0,229,160,.07);
-}
 
-/* ── SECTION TAGS — GLOW ── */
-.tag{
-  box-shadow:
-    0 0 12px rgba(0,229,160,.1),
-    0 0 36px rgba(0,229,160,.05);
-  text-shadow:0 0 6px rgba(0,229,160,.2);
-}
 
 /* ── AMBIENT BLOB — BASE STYLE ── */
 .ambient-blob{
@@ -1628,27 +1473,7 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   // ── AMBIENT LIGHT BLOBS ──────────────────────────────────
   // Inject radial-gradient divs into key sections.
   // CSS keyframes (blob-drift-a/b/c) are defined in the style block above.
-  var ambSec=[
-    {id:'hero', blobs:[
-      {w:500,h:500,t:'5%', l:'2%',  c:'rgba(0,229,160,.07)', a:'blob-drift-a 17s ease-in-out infinite'},
-      {w:380,h:380,t:'50%',r:'2%',  c:'rgba(0,229,160,.05)', a:'blob-drift-b 21s ease-in-out infinite'},
-    ]},
-    {id:'features', blobs:[
-      {w:550,h:380,t:'12%',l:'-8%', c:'rgba(0,229,160,.06)', a:'blob-drift-c 19s ease-in-out infinite'},
-      {w:450,h:380,b:'8%', r:'-8%', c:'rgba(0,229,160,.05)', a:'blob-drift-a 23s ease-in-out infinite reverse'},
-    ]},
-    {id:'proof', blobs:[
-      {w:500,h:380,t:'22%',l:'3%',  c:'rgba(0,229,160,.06)', a:'blob-drift-b 20s ease-in-out infinite'},
-      {w:400,h:320,b:'12%',r:'3%',  c:'rgba(0,229,160,.05)', a:'blob-drift-c 25s ease-in-out infinite'},
-    ]},
-    {id:'plans', blobs:[
-      {w:550,h:380,t:'12%',r:'-12%',c:'rgba(240,180,41,.04)',a:'blob-drift-a 21s ease-in-out infinite'},
-      {w:450,h:320,b:'8%', l:'-10%',c:'rgba(0,229,160,.05)', a:'blob-drift-b 17s ease-in-out infinite'},
-    ]},
-    {id:'cta-final', blobs:[
-      {w:650,h:500,t:'10%',l:'50%',tf:'translateX(-50%)',c:'rgba(0,229,160,.07)',a:'blob-drift-a 15s ease-in-out infinite'},
-    ]},
-  ];
+  var ambSec=[];
 
   ambSec.forEach(function(sec){
     var el=document.getElementById(sec.id);
